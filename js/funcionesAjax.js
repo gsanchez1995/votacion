@@ -30,3 +30,19 @@ function Votacion(CualTipo)
 		$('#principal').html(retorno);
 	});
 }
+
+function Listado()
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'Listado'
+		}
+	});
+
+	funcionAjax.done(function(retorno)
+	{
+		$('#principal').html(retorno);
+	});
+}

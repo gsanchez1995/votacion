@@ -24,3 +24,39 @@ function GuardarVotacion()
 		$('#principal').html(retorno);
 	});
 }
+
+function Modificar(EstaEsLaId)
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'Modificar',
+			idParaModificar: EstaEsLaId
+		}
+	});
+
+	funcionAjax.done(function(retorno){
+		var unaVotacion = JSON.parse(retorno);
+		$('#hiddenId').val(unaVotacion.id);
+		$('#txtProvincia').val(unaVotacion.provincia);
+	});
+
+	Votacion("Modificacion");
+}
+
+function Borrar(EstaEsLaId)
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'Borrar',
+			idParaBorrar: EstaEsLaId
+		}
+	});
+
+	funcionAjax.done(function(retorno){
+		Listado();
+	});
+}

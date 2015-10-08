@@ -26,6 +26,15 @@ switch ($_POST['queHacer']) {
 	case 'GuardarVotacion':
 		include "php/guardarVotacion.php";
 		break;
+	case 'Listado':
+		include "partes/formListado.php";
+		break;
+	case 'Modificar':
+		include "php/modificarVotacion.php";
+		break;
+	case 'Borrar':
+		include "php/borrarVotacion.php";
+		break;
 	default:
 		# code...
 		break;
