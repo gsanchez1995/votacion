@@ -1,4 +1,4 @@
-function Ingresar()
+function GuardarVotacion()
 {
 	var variableParaSexo = "error";
 	if(document.getElementsByName('radioSexo')[0].checked){
