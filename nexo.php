@@ -35,6 +35,8 @@ switch ($_POST['queHacer']) {
 	case 'Borrar':
 		include "php/borrarVotacion.php";
 		break;
+	case 'ContadorDeVotos':
+		include "php/contadorDeVotos.php";
 	default:
 		# code...
 		break;

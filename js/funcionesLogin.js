@@ -14,3 +14,19 @@ function HacerSesionDNI()
 		$('#principal').html(retorno);
 	});
 }
+
+function ContadorDeVotos()
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'ContadorDeVotos'
+		}
+	});
+
+	funcionAjax.done(function(retorno)
+	{
+		$('#Contador').html(retorno);
+	});
+}
