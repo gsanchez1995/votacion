@@ -2,7 +2,7 @@
 
 echo "
 		<form method='post' id='form' name='form' onsubmit='GuardarVotacion();return false;'>
-			Provincia: <input type='text' id='txtProvincia' name='txtProvincia'/></br>
+			Provincia: <input minlength='1' type='text' id='txtProvincia' name='txtProvincia'/></br>
 			Presidente: <select name='selectPresidentes' id='selectPresidentes'>
 				<option value='scioli'>Scioli</option>
 				<option value='macri'>Macri</option>
