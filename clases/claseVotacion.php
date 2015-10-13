@@ -7,15 +7,19 @@ class Votacion
 	public $id;
 	public $dni;
 	public $provincia;
+	public $localidad;
+	public $direccion;
 	public $presidente;
 	public $sexo;
 
-	public static function InsertarVoto($dni, $provincia, $presidente, $sexo)
+	public static function InsertarVoto($dni, $provincia, $localidad, $direccion, $presidente, $sexo)
 	{
 		$objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-		$consulta = $objetoAccesoDatos->RetornarConsulta("CALL InsertarVoto(:paramDni, :paramProvincia, :paramPresidente, :paramSexo)");
+		$consulta = $objetoAccesoDatos->RetornarConsulta("CALL InsertarVoto(:paramDni, :paramProvincia, :paramPresidente, :paramSexo, :paramLocalidad, :paramDireccion)");
 		$consulta->bindValue(":paramDni",$dni,PDO::PARAM_INT);
 		$consulta->bindValue(":paramProvincia",$provincia,PDO::PARAM_STR);
+		$consulta->bindValue(":paramLocalidad",$localidad,PDO::PARAM_STR);
+		$consulta->bindValue(":paramDireccion",$direccion,PDO::PARAM_STR);
 		$consulta->bindValue(":paramPresidente",$presidente,PDO::PARAM_STR);
 		$consulta->bindValue(":paramSexo",$sexo,PDO::PARAM_STR);
 		$consulta->execute();
@@ -38,11 +42,13 @@ class Votacion
 		return $consulta->fetchObject("Votacion");
 	}
 
-	public static function ModificarVoto($provincia,$presidente,$sexo,$id)
+	public static function ModificarVoto($provincia,$localidad,$direccion,$presidente,$sexo,$id)
 	{
 		$objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-		$consulta = $objetoAccesoDatos->RetornarConsulta("CALL ModificarVoto(:paramProvincia, :paramPresidente, :paramSexo, :paramId)");
+		$consulta = $objetoAccesoDatos->RetornarConsulta("CALL ModificarVoto(:paramProvincia, :paramPresidente, :paramSexo, :paramId, :paramLocalidad, :paramDireccion)");
 		$consulta->bindValue(":paramProvincia",$provincia,PDO::PARAM_STR);
+		$consulta->bindValue(":paramLocalidad",$localidad,PDO::PARAM_STR);
+		$consulta->bindValue(":paramDireccion",$direccion,PDO::PARAM_STR);
 		$consulta->bindValue(":paramPresidente",$presidente,PDO::PARAM_STR);
 		$consulta->bindValue(":paramSexo",$sexo,PDO::PARAM_STR);
 		$consulta->bindValue(":paramId",$id,PDO::PARAM_INT);

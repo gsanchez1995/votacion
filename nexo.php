@@ -37,6 +37,10 @@ switch ($_POST['queHacer']) {
 		break;
 	case 'ContadorDeVotos':
 		include "php/contadorDeVotos.php";
+		break;
+	case 'VerEnMapa':
+		include "partes/formMapa.php";
+		break;
 	default:
 		# code...
 		break;

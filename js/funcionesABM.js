@@ -14,6 +14,8 @@ function GuardarVotacion()
 			queHacer: 'GuardarVotacion',
 			id: document.getElementById('hiddenId').value,
 			provincia: document.getElementById('txtProvincia').value,
+			localidad: document.getElementById('txtLocalidad').value,
+			direccion: document.getElementById('txtDireccion').value,
 			presidente: document.getElementById('selectPresidentes').value,
 			sexo: variableParaSexo
 		}
@@ -40,6 +42,13 @@ function Modificar(EstaEsLaId)
 		var unaVotacion = JSON.parse(retorno);
 		$('#hiddenId').val(unaVotacion.id);
 		$('#txtProvincia').val(unaVotacion.provincia);
+		$('#txtLocalidad').val(unaVotacion.localidad);
+		$('#txtDireccion').val(unaVotacion.direccion);
+		$('#selectPresidentes').val(unaVotacion.presidente);
+		if(unaVotacion.sexo == 'femenino')
+		{
+			$("#radioSexo2").prop("checked", true);
+		}
 	});
 
 	Votacion("Modificacion");
