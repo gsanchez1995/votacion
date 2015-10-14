@@ -12,6 +12,7 @@
 			<td>Dirección</td>
 			<td>Presidente</td>
 			<td>Sexo</td>
+			<td>Comidas</td>
 			<td>Modificar</td>
 			<td>Borrar</td>
 			<td>Ver en Mapa</td>
@@ -27,6 +28,7 @@
 				<td>$item->direccion</td>
 				<td>$item->presidente</td>
 				<td>$item->sexo</td>
+				<td>$item->comidas</td>
 				<td><input type='button' value='Modificar' onclick='Modificar(".$item->id.")'/></td>
 				<td><input type='button' value='Borrar' onclick='Borrar(".$item->id.")'/></td>
 				<td><input type='button' value='Ver en Mapa' onclick='VerEnMapa($miVariable)'/></td>

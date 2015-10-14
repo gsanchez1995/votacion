@@ -7,6 +7,33 @@ function GuardarVotacion()
 		variableParaSexo = 'femenino';
 	}	
 
+	var variableParaComidas = '';
+
+	if(document.getElementsByName('checkComidas')[0].checked)
+	{
+		variableParaComidas = variableParaComidas.concat('pizza');
+	}
+	if(document.getElementsByName('checkComidas')[1].checked)
+	{
+		if(document.getElementsByName('checkComidas')[0].checked)
+		{
+			variableParaComidas = variableParaComidas.concat(',empanadas');
+		}else
+		{
+			variableParaComidas = variableParaComidas.concat('empanadas');
+		}
+	}
+	if(document.getElementsByName('checkComidas')[2].checked)
+	{
+		if(document.getElementsByName('checkComidas')[0].checked || document.getElementsByName('checkComidas')[1].checked)
+		{
+			variableParaComidas = variableParaComidas.concat(',asado');
+		}else
+		{
+			variableParaComidas = variableParaComidas.concat('asado');
+		}
+	}
+
 	var funcionAjax = $.ajax({
 		url: 'nexo.php',
 		type: 'post',
@@ -17,7 +44,8 @@ function GuardarVotacion()
 			localidad: document.getElementById('txtLocalidad').value,
 			direccion: document.getElementById('txtDireccion').value,
 			presidente: document.getElementById('selectPresidentes').value,
-			sexo: variableParaSexo
+			sexo: variableParaSexo,
+			comidas: variableParaComidas
 		}
 	});
 
