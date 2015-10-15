@@ -7,11 +7,11 @@ function GuardarVotacion()
 		variableParaSexo = 'femenino';
 	}	
 
-	var variableParaComidas = '';
+	var variableParaComidas = 'nada';
 
 	if(document.getElementsByName('checkComidas')[0].checked)
 	{
-		variableParaComidas = variableParaComidas.concat('pizza');
+		variableParaComidas = 'pizza';
 	}
 	if(document.getElementsByName('checkComidas')[1].checked)
 	{
@@ -20,7 +20,7 @@ function GuardarVotacion()
 			variableParaComidas = variableParaComidas.concat(',empanadas');
 		}else
 		{
-			variableParaComidas = variableParaComidas.concat('empanadas');
+			variableParaComidas = 'empanadas';
 		}
 	}
 	if(document.getElementsByName('checkComidas')[2].checked)
@@ -30,7 +30,7 @@ function GuardarVotacion()
 			variableParaComidas = variableParaComidas.concat(',asado');
 		}else
 		{
-			variableParaComidas = variableParaComidas.concat('asado');
+			variableParaComidas = 'asado';
 		}
 	}
 
